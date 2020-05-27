@@ -6,14 +6,20 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static android.content.Intent.EXTRA_TEXT;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -41,12 +47,24 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 switch(id)
                 {
-                    case R.id.account:
-                        Toast.makeText(MainActivity.this, "My Account",Toast.LENGTH_SHORT).show();break;
-                    case R.id.settings:
-                        Toast.makeText(MainActivity.this, "Settings",Toast.LENGTH_SHORT).show();break;
-                    case R.id.mycart:
-                        Toast.makeText(MainActivity.this, "My Cart", Toast.LENGTH_SHORT).show();break;
+                    case R.id.share:
+                        Toast.makeText(MainActivity.this, "Share",Toast.LENGTH_SHORT).show();
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.putExtra(EXTRA_TEXT,
+                                "Hey check out ntsa at: https://play.google.com/store/apps/details?id=ntsa.sebastian.com.ntsaenforcementmodule.application&hl=en" + BuildConfig.APPLICATION_ID);
+                        sendIntent.setType("text/plain");
+                        startActivity(sendIntent);
+                        break;
+
+                    case R.id.rate:
+                        Toast.makeText(MainActivity.this, "Rate", Toast.LENGTH_SHORT).show();
+                        String url = "https://play.google.com/store/apps/details?id=ntsa.sebastian.com.ntsaenforcementmodule.application&hl=en";
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(url));
+                        startActivity(intent);
+                        break;
+
                     default:
                         return true;
                 }

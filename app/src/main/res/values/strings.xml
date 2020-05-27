@@ -1,9 +1,16 @@
 <resources>
-    <string name="app_name">drawers</string>
+    <string name="app_name">Ntsa App</string>
     <string name="main">Main</string>
     <string name="my_cart">My Cart</string>
     <string name="settings">Settings</string>
     <string name="my_account">My Account</string>
     <string name="Open" >Open</string>
     <string name="Close">Close</string>
+    <string name="share">Share</string>
+    <string name="rate">Rate</string>
+    <string name="communicate">Communicate</string>
+    <string name="ntsa_app">Ntsa App</string>
+    <string name="info_ntsa_co_ke">info@ntsa.co.ke</string>
+    <string name="tims_self_service_portal">Tims Self Service Portal</string>
+    <string name="ecitizen">Ecitizen</string>
 </resources>
