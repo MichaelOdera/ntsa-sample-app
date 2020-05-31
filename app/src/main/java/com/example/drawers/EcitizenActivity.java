@@ -18,6 +18,6 @@ public class EcitizenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ecitizen);
         ButterKnife.bind(this);
 
-        mCitizenWebView.loadUrl("https://tims.ntsa.go.ke/login_csp.jsp");
+        mCitizenWebView.loadUrl("https://ntsa.ecitizen.go.ke/");
     }
 }
