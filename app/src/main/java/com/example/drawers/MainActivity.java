@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -21,18 +23,23 @@ import butterknife.ButterKnife;
 
 import static android.content.Intent.EXTRA_TEXT;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActionBarDrawerToggle mToggle;
 
     @BindView(R.id.activity_main) DrawerLayout mDrawerLayout;
     @BindView(R.id.nv) NavigationView mNavigationView;
+    @BindView(R.id.timsImage) ImageView mTimsImageView;
+    @BindView(R.id.eCitizenImage) ImageView mEcitizenImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        mTimsImageView.setOnClickListener(this);
+        mEcitizenImageView.setOnClickListener(this);
 
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.Open, R.string.Close);
 
@@ -80,5 +87,18 @@ public class MainActivity extends AppCompatActivity {
             return true;
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mEcitizenImageView) {
+            Intent portalIntent = new Intent(MainActivity.this, PortalActivity.class);
+            startActivity(portalIntent);
+        }
+        if (view == mTimsImageView) {
+            Intent eCitizenIntent = new Intent(MainActivity.this, EcitizenActivity.class);
+            startActivity(eCitizenIntent);
+        }
+
     }
 }
