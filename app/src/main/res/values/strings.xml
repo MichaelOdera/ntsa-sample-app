@@ -13,4 +13,6 @@
     <string name="info_ntsa_co_ke">info@ntsa.co.ke</string>
     <string name="tims_self_service_portal">Tims Self Service Portal</string>
     <string name="ecitizen">Ecitizen</string>
+    <string name="launch_app">LAUNCH APP</string>
+    <string name="access_kplc_services_chap_chap">Access kplc services Chap Chap</string>
 </resources>
