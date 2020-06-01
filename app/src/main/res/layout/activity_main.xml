@@ -40,6 +40,7 @@
                     android:layout_centerHorizontal="true"
                     android:padding="20dp"
                     android:layout_margin="10dp"
+                    android:elevation="2dp"
                     android:background="@drawable/button_border"
                     android:src="@drawable/portal" />
 
@@ -66,6 +67,7 @@
                     android:padding="10dp"
                     android:layout_centerHorizontal="true"
                     android:layout_margin="10dp"
+                    android:elevation="2dp"
                     android:background="@drawable/button_border"
                     android:src="@drawable/ecitizen" />
 
