@@ -48,7 +48,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/tims_self_service_portal"
                     android:textAlignment="center"
-                    android:layout_below="@+id/timsImage"/>
+                    android:layout_below="@+id/timsImage"
+                    android:gravity="center_horizontal" />
 
             </RelativeLayout>
 
@@ -73,7 +74,8 @@
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:text="@string/ecitizen"
-                    android:layout_below="@+id/eCitizenImage"/>
+                    android:layout_below="@+id/eCitizenImage"
+                    android:gravity="center_horizontal" />
             </RelativeLayout>
 
 
@@ -87,10 +89,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:baselineAlignBottom="true"
             app:backgroundTint="@color/colorFab"
-            app:srcCompat="@drawable/ic_local_phone" />
+            app:srcCompat="@drawable/ic_local_phone"
+            android:layout_marginRight="20dp"
+            tools:ignore="VectorDrawableCompat" />
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
