@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.nv) NavigationView mNavigationView;
     @BindView(R.id.timsImage) ImageView mTimsImageView;
     @BindView(R.id.eCitizenImage) ImageView mEcitizenImageView;
+    @BindView(R.id.fabIcon) FloatingActionButton mFabIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mTimsImageView.setOnClickListener(this);
         mEcitizenImageView.setOnClickListener(this);
+        mFabIcon.setOnClickListener(this);
 
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.Open, R.string.Close);
 
@@ -92,12 +95,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if (view == mEcitizenImageView) {
-            Intent portalIntent = new Intent(MainActivity.this, PortalActivity.class);
+            Intent portalIntent = new Intent(MainActivity.this, EcitizenActivity.class);
             startActivity(portalIntent);
         }
         if (view == mTimsImageView) {
-            Intent eCitizenIntent = new Intent(MainActivity.this, EcitizenActivity.class);
+            Intent eCitizenIntent = new Intent(MainActivity.this, PortalActivity.class);
             startActivity(eCitizenIntent);
+        }
+
+        if(view == mFabIcon) {
+            Intent kplcIntent = new Intent(MainActivity.this, KplcActivity.class);
+            startActivity(kplcIntent);
         }
 
     }
