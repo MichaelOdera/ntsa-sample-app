@@ -1,7 +1,6 @@
-package com.example.drawers;
+package com.example.drawers.ui;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -9,13 +8,19 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.drawers.BuildConfig;
+import com.example.drawers.R;
+import com.example.drawers.ui.authentication.RegistrationActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Objects;
 
@@ -27,6 +32,8 @@ import static android.content.Intent.EXTRA_TEXT;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActionBarDrawerToggle mToggle;
+
+    private FirebaseAuth mAuth;
 
     @BindView(R.id.activity_main) DrawerLayout mDrawerLayout;
     @BindView(R.id.nv) NavigationView mNavigationView;
@@ -43,6 +50,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTimsImageView.setOnClickListener(this);
         mEcitizenImageView.setOnClickListener(this);
         mFabIcon.setOnClickListener(this);
+
+        mAuth = FirebaseAuth.getInstance();
 
         mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.Open, R.string.Close);
 
@@ -84,10 +93,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
     @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.app_bar_options, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
 
         if(mToggle.onOptionsItemSelected(item))
             return true;
+
+        if (id== R.id.action_logout){
+            FirebaseAuth.getInstance().signOut();
+            Intent logoutIntent = new Intent(MainActivity.this, RegistrationActivity.class);
+            logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            MainActivity.this.startActivity(logoutIntent);
+            MainActivity.this.finish();
+        }
 
         return super.onOptionsItemSelected(item);
     }
