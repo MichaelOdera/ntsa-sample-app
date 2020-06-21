@@ -76,7 +76,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             }
 
             @Override
-            public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            public void onCodeSent(String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 super.onCodeSent(s, forceResendingToken);
                 mVerificationCode = s;
                 Toast.makeText(RegistrationActivity.this,"Code"+s+" sent to"+ mPhoneNumber,Toast.LENGTH_SHORT).show();
