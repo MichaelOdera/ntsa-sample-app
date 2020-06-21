@@ -1,4 +1,4 @@
-package com.example.drawers;
+package com.example.drawers.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+
+import com.example.drawers.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

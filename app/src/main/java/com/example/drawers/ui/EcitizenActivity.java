@@ -1,4 +1,4 @@
-package com.example.drawers;
+package com.example.drawers.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,22 +9,27 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
+import com.example.drawers.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class KplcActivity extends AppCompatActivity {
-    @BindView(R.id.kplcWebView) WebView mKplcWebView;
+public class EcitizenActivity extends AppCompatActivity {
+
+    @BindView(R.id.eCitizenWebView) WebView mCitizenWebView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kplc);
+        setContentView(R.layout.activity_ecitizen);
         ButterKnife.bind(this);
 
-        mKplcWebView.setWebViewClient(new WebViewClient());
-        mKplcWebView.loadUrl("https://kplc.co.ke/category/view/50/power-interruptions");
+        mCitizenWebView.setWebViewClient(new WebViewClient());
+
+        mCitizenWebView.loadUrl("https://ntsa.ecitizen.go.ke/");
     }
+
     public class WebViewClient extends android.webkit.WebViewClient{
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
