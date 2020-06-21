@@ -1,0 +1,156 @@
+/**
+ * ------------------------------------------------------------------------
+ * JA Promo Bar module
+ * ------------------------------------------------------------------------
+ * Copyright (C) 2004-2011 J.O.O.M Solutions Co., Ltd. All Rights Reserved.
+ * @license - GNU/GPL, http://www.gnu.org/licenses/gpl.html
+ * Author: J.O.O.M Solutions Co., Ltd
+ * Websites: http://www.joomlart.com - http://www.joomlancers.com
+ * ------------------------------------------------------------------------
+ */
+@media screen and (max-width: 600px) {
+  .ja-promo-bar .inner .button,
+  .ja-promo-bar .ja-promo-bar-countdown {
+	  display: block;
+	  margin: 5px 0;
+  }
+
+  .ja-promo-bar .hidden-phone {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .ja-promo-bar .inner .button {
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .ja-promo-bar .inner {
+    height: auto !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+.ja-promo-bar {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+}
+
+
+.ja-promo-bar.bottom {
+}
+
+.ja-promo-bar .promo-bar-content {
+  display: inline-block;
+}
+
+.ja-promo-bar.fixed {
+  position: fixed !important;
+}
+
+.ja-promo-bar .inner {
+  background-color: #d33;
+  box-sizing: border-box;
+  border-bottom: 1px solid #db5555;
+  color: #fff;
+  padding: 10px 50px 10px 0;
+  position: relative;
+  text-align: center;
+}
+
+.ja-promo-bar .inner .button {
+  border-radius: 3px;
+  padding: 10px 15px;
+  border: 0;
+  font-size: 15px;
+  box-shadow: none;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-shadow: none;
+}
+
+.ja-promo-bar .inner .button:hover {
+  text-decoration: none;
+}
+
+/* Control buttons */
+.ja-promo-bar .buttons span {
+  background: url("images/icon-arrow.png") no-repeat center center #B82828;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  height: 40px;
+  text-indent: -9999px;
+  width: 40px;
+}
+
+.ja-promo-bar .buttons .opened {
+  background-position: left bottom;
+  background-color: transparent !important;
+}
+
+.ja-promo-bar .buttons .opened:hover {
+  background-position: right bottom;
+}
+
+.ja-promo-bar .buttons .closed {
+  background-position: left top;
+}
+
+.ja-promo-bar .buttons .closed:hover {
+  background-position: right top;
+}
+
+.ja-promo-bar-countdown {
+  background: rgba(0,0,0,0.2);
+  border-radius: 2px;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  margin: -3px 10px 0 10px;
+  padding: 5px;
+}
+
+.ja-promo-bar-countdown .digit {
+  background-color: #333;
+  border-radius: 2px;
+  box-shadow: 0 -2px 0 rgba(0,0,0,0.2) inset;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1;
+  padding: 5px;
+  margin: 0 3px;
+  position: relative;
+}
+
+.ja-promo-bar-countdown .digit:before {
+  background-color: rgba(0,0,0,0.2);
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.ja-promo-bar-countdown .digit span {
+  display: inline-block;
+  position: relative;
+  z-index: 4;
+}
+
+.ja-promo-bar .text-message {
+  font-size: 15px;
+}
